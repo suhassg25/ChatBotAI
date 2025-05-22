@@ -8,12 +8,16 @@ import SampleCard from "../Components/SampleCard/SampleCard"
 import { useState } from "react";
 import {Link} from "react-router-dom";
 import ChatPage from "../Components/ChatPage/ChatPage";
+import Feedback from "../Components/FeedBacks/FeedBack";
+
 const Home = ({children}) => {
 
     const [clicked, setClicked] = useState({});
     const [input, setInput] = useState('');
     const [questions, setQuestions] = useState([]);
     const [userInput, setUserInput] = useState('');
+    const [feedBack, setFeedback] = useState('');
+    const [isHidden, setIsHidden] = useState(true);
     
     const matched = (userQuestion)=>{
         const matched = sample.find((item) => item.question.toLowerCase() === userQuestion.toLowerCase());
@@ -30,8 +34,14 @@ const Home = ({children}) => {
         setQuestions([...questions, matched(item.question)]);
     }
 const handleSelect = () => {
-  
+    setIsHidden(false);
     localStorage.setItem('saved', JSON.stringify(questions));
+}   
+
+const setFeedBack = (someFeed) =>{
+    setFeedback(someFeed);
+    setIsHidden(true);
+    alert('Thank you for your feedback', false);
 }
     return (
         <div className={Styles.home}>
@@ -62,11 +72,12 @@ const handleSelect = () => {
                         </div>
                     :  <div className={Styles.main__container_2}>
                         {questions.map((it, index)=>{
-                          return <ChatPage key={index} data={it}/>
+                            return <ChatPage key={index} data={it}/>
                         })}                
                      </div>
                     }
 
+                    {/* <Feedback isHidden={isHidden} handle={setFeedBack}/> */}
                     <form className={Styles.inputContainer} onSubmit={(e)=>{e.preventDefault(); setInput(userInput);  userInput || alert('empty text can not be Sent', false); handleClick({question : userInput}); setUserInput('') }}>
                         <input className={Styles.input} type="text" value={userInput} onChange={(e)=>setUserInput(e.currentTarget.value)} placeholder="Message Bot AI..." />
                         <button className={Styles.btnFont}  type="submit" >Send</button>

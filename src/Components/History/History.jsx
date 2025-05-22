@@ -5,6 +5,7 @@ function History() {
     const [history, setHistory] = useState(() => localStorage.getItem('saved') ? JSON.parse(localStorage.getItem('saved')) : []);
 
     return (<div>
+        <h2 style={{marginTop:100}}>Conversation History</h2>
         {history.length>0 ? history.map((item, index) => {
             return <ChatPage key={index} data={item} />
         }) :
