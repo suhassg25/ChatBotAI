@@ -38,7 +38,7 @@ const handleSelect = () => {
             <aside className={Styles.aside}>
                 <div className={Styles.aside__header}>
                     <img className={Styles.logo} src={Logo} alt="" />
-                 <Link to="/">  <p  onClick={()=>{setClicked({}); setInput('');}}>New Chat</p> </Link>
+                 <Link to="/">  <p  onClick={()=>{setClicked({}); setInput(''); setQuestions([]);}}>New Chat</p> </Link>
                      <img className={Styles.edit} src={Edit} alt="" />
                 </div>
                <Link to="/history"> <button className={Styles.aside_button}> Past Conversations</button> </Link>
