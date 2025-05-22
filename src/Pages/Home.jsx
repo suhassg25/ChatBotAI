@@ -38,14 +38,14 @@ const handleSelect = () => {
             <aside className={Styles.aside}>
                 <div className={Styles.aside__header}>
                     <img className={Styles.logo} src={Logo} alt="" />
-                 <Link to="/">  <p  onClick={()=>{setClicked({}); setInput(''); setQuestions([]);}}>New Chat</p> </Link>
+                 <a href="/">  <p  onClick={()=>{setClicked({}); setInput(''); setQuestions([]);}}>New Chat</p> </a>
                      <img className={Styles.edit} src={Edit} alt="" />
                 </div>
                <Link to="/history"> <button className={Styles.aside_button}> Past Conversations</button> </Link>
             </aside>
             <div className={Styles.main}>
                 <img src={crumbar} className={Styles.crumbar} alt="" />
-             <p className={Styles.mainHeading} >Bot AI</p>
+             <h1 className={Styles.mainHeading} >Bot AI</h1>
                 <div className={Styles.main__container}>
                     {
                         children  ? children  : (!clicked['id'] && !input) ?
