@@ -45,7 +45,7 @@ const handleSelect = () => {
             </aside>
             <div className={Styles.main}>
                 <img src={crumbar} className={Styles.crumbar} alt="" />
-             <h1 className={Styles.mainHeading} >Bot AI</h1>
+             <header> <h1 className={Styles.mainHeading} >Bot AI</h1></header>
                 <div className={Styles.main__container}>
                     {
                         children  ? children  : (!clicked['id'] && !input) ?
