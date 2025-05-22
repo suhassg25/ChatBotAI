@@ -67,11 +67,11 @@ const handleSelect = () => {
                      </div>
                     }
 
-                    <div className={Styles.inputContainer}>
+                    <form className={Styles.inputContainer} onSubmit={(e)=>{e.preventDefault(); setInput(userInput);  userInput || alert('empty text can not be Sent', false); handleClick({question : userInput}); setUserInput('') }}>
                         <input className={Styles.input} type="text" value={userInput} onChange={(e)=>setUserInput(e.currentTarget.value)} placeholder="Message Bot AI..." />
-                        <button className={Styles.btnFont} onClick={()=>{setInput(userInput);  userInput || alert('empty text can not be Sent', false); handleClick({question : userInput}); setUserInput('') }} type="submit" >Send</button>
+                        <button className={Styles.btnFont}  type="submit" >Send</button>
                         <button className={Styles.btnFont} type="button" onClick={handleSelect}>Save</button>
-                    </div>
+                    </form>
                 </div>
 
             </div>
