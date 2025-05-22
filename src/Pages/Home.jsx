@@ -8,7 +8,7 @@ import SampleCard from "../Components/SampleCard/SampleCard"
 import { useState } from "react";
 import {Link} from "react-router-dom";
 import ChatPage from "../Components/ChatPage/ChatPage";
-const Home = () => {
+const Home = ({children}) => {
 
     const [clicked, setClicked] = useState({});
     const [input, setInput] = useState('');
@@ -38,17 +38,17 @@ const handleSelect = () => {
             <aside className={Styles.aside}>
                 <div className={Styles.aside__header}>
                     <img className={Styles.logo} src={Logo} alt="" />
-                    <p >New Chat</p>
-                    <img className={Styles.edit} src={Edit} alt="" />
+                 <Link to="/">  <p  onClick={()=>{setClicked({}); setInput('');}}>New Chat</p> </Link>
+                     <img className={Styles.edit} src={Edit} alt="" />
                 </div>
-                <button className={Styles.aside_button}> Past Conversations</button>
+               <Link to="/history"> <button className={Styles.aside_button}> Past Conversations</button> </Link>
             </aside>
             <div className={Styles.main}>
                 <img src={crumbar} className={Styles.crumbar} alt="" />
-             <p className={Styles.mainHeading} onClick={()=>{setClicked({}); setInput('');}}>Bot AI</p>
+             <p className={Styles.mainHeading} >Bot AI</p>
                 <div className={Styles.main__container}>
                     {
-                    (!clicked['id'] && !input) ?
+                        children  ? children  : (!clicked['id'] && !input) ?
                         <div className={Styles.main__container}>
                             <h1>How Can I Help You Today?</h1>
                             <img src={Soul} alt="Soul Ai image" style={{ width: 65.3, height: 69, borderRadius: '50%' }} />

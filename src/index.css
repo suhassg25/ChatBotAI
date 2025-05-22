@@ -25,7 +25,6 @@ a:hover {
 body {
   display: flex;
   place-items: center;
-  overflow-x: hidden;
 }
 
 h1 {

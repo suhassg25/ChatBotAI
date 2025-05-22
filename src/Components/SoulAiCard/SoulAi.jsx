@@ -3,7 +3,7 @@ import soul from "../../assets/SoulAi.png"
 import like from "../../assets/like.png"
 function UserCard({answer}){
 return(
-    <div className={Styles.soul}>
+    <span className={Styles.soul}>
         <img src={soul} alt="" style={{width:65, height:69}} />
         <div className={Styles.userCard_content}>
             <h1 className={Styles.userCard__heading}>Soul AI</h1>
@@ -17,7 +17,7 @@ return(
             </div>
         </div>
 
-    </div>
+    </span>
 )
 }
 export default UserCard;
